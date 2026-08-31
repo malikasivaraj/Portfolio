@@ -1,1 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malika S D — Electronics &amp; Communication Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0D1512;
+    --surface: #16211C;
+    --surface-2: #1C2921;
+    --copper: #C87F4A;
+    --copper-dim: #8A5936;
+    --silk: #E8E6DE;
+    --silk-dim: #9BA69C;
+    --circuit-green: #5B8C6E;
+    --line: #2A3A31;
+    --radius: 3px;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
 
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: -1px -1px;
+    color: var(--silk);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  a{ color: var(--copper); text-decoration: none; border-bottom: 1px solid var(--copper-dim); transition: border-color .15s ease, color .15s ease; }
+  a:hover, a:focus-visible{ color: var(--silk); border-color: var(--silk); }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--copper); outline-offset: 3px; }
+
+  .wrap{ max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .pin{
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: var(--circuit-green);
+  }
+
+  /* ---------- Header ---------- */
+  header.hero{
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--line);
+  }
+  .board-tag{
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--copper);
+    background: var(--surface);
+    border: 1px solid var(--copper-dim);
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: var(--radius);
+    margin-bottom: 24px;
+  }
+  h1.name{
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: clamp(32px, 6vw, 48px);
+    margin: 0 0 6px;
+    color: var(--silk);
+    letter-spacing: -0.01em;
+  }
+  .role{
+    font-size: 18px;
+    color: var(--silk-dim);
+    margin: 0 0 28px;
+    max-width: 46ch;
+  }
+  .contact-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--silk-dim);
+  }
+  .contact-row a{ color: var(--silk-dim); border-bottom: 1px solid var(--line); }
+  .contact-row a:hover{ color: var(--copper); border-color: var(--copper); }
+
+  /* ---------- Section shell ---------- */
+  section{ padding: 56px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type{ border-bottom: none; }
+  .section-head{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .section-head .pin{ min-width: 34px; }
+  h2{
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--silk);
+    margin: 0;
+    text-transform: lowercase;
+  }
+  .section-head::after{
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ---------- Objective ---------- */
+  .objective p{
+    max-width: 62ch;
+    color: var(--silk-dim);
+    font-size: 16px;
+  }
+
+  /* ---------- Education card ---------- */
+  .card{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+  }
+  .edu-title{ font-weight: 600; color: var(--silk); margin: 0 0 4px; font-size: 16px; }
+  .edu-sub{ color: var(--silk-dim); font-size: 14px; margin: 0 0 14px; }
+  .edu-meta{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--circuit-green);
+  }
+  .edu-history{
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--line);
+    font-size: 13.5px;
+    color: var(--silk-dim);
+  }
+  .edu-history div{ display:flex; justify-content: space-between; gap: 12px; padding: 3px 0; }
+
+  /* ---------- Skills ---------- */
+  .skill-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+  }
+  .skill-block{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+  .skill-block .label{
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--copper);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .chip-row{ display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip{
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--silk);
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    padding: 4px 9px;
+    border-radius: var(--radius);
+  }
+
+  /* ---------- Experience trace ---------- */
+  .trace-wrap{ position: relative; }
+  .trace-svg{
+    position: absolute;
+    left: 15px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    height: calc(100% - 16px);
+  }
+  .trace-line{
+    stroke: var(--copper);
+    stroke-width: 2;
+    fill: none;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: draw 1.4s ease-out 0.2s forwards;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .trace-line{ animation: none; stroke-dashoffset: 0; }
+  }
+  @keyframes draw{ to{ stroke-dashoffset: 0; } }
+
+  .node{
+    position: relative;
+    padding-left: 48px;
+    margin-bottom: 32px;
+  }
+  .node:last-child{ margin-bottom: 0; }
+  .node-dot{
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--copper);
+  }
+  .node-id{
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--copper);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .node-role{ font-weight: 600; color: var(--silk); margin: 0 0 2px; font-size: 15.5px; }
+  .node-org{ color: var(--silk-dim); font-size: 13.5px; margin: 0 0 10px; font-family: var(--mono); }
+  .node ul{ margin: 0; padding-left: 18px; color: var(--silk-dim); font-size: 14.5px; }
+  .node li{ margin-bottom: 6px; }
+
+  /* ---------- Project spec sheet ---------- */
+  .spec-sheet{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .spec-header{
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .spec-header h3{
+    margin: 0;
+    font-size: 17px;
+    color: var(--silk);
+    font-weight: 600;
+  }
+  .spec-header .pin{ white-space: nowrap; }
+  .spec-body{ padding: 20px 22px; }
+  .spec-body ul{ margin: 0; padding-left: 18px; color: var(--silk-dim); font-size: 14.5px; }
+  .spec-body li{ margin-bottom: 8px; }
+  .spec-body li::marker{ color: var(--copper); }
+  .spec-tags{
+    padding: 16px 22px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding: 40px 0 60px;
+    text-align: left;
+  }
+  .footer-line{
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--silk-dim);
+  }
+  .footer-links{
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 560px){
+    header.hero{ padding: 52px 0 40px; }
+    section{ padding: 40px 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <span class="board-tag">// ENTRY-LEVEL IT · EMBEDDED + SOFTWARE</span>
+    <h1 class="name">MALIKA S D</h1>
+    <p class="role">Electronics &amp; Communication Engineering student, building at the point where circuit boards meet code.</p>
+    <div class="contact-row">
+      <a href="mailto:malikasivaraj8@gmail.com">malikasivaraj8@gmail.com</a>
+      <span>+91 9600795488</span>
+      <span>Coimbatore, Tamil Nadu</span>
+      <a href="https://linkedin.com/in/malika-sivaraj-4a278a3a3" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/malikasivaraj" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <section class="objective">
+    <div class="section-head"><span class="pin">01</span><h2>objective</h2></div>
+    <p>A versatile ECE undergraduate combining a strong foundation in hardware systems with a passion for software development — adept at analytical problem-solving and programming alongside microcontrollers and circuit design, seeking an entry-level IT role that bridges hardware architecture and scalable software solutions.</p>
+  </section>
+
+  <section class="education">
+    <div class="section-head"><span class="pin">02</span><h2>education</h2></div>
+    <div class="card">
+      <p class="edu-title">Bachelor of Engineering — Electronics and Communication Engineering</p>
+      <p class="edu-sub">V.S.B. College of Engineering Technical Campus, Coimbatore, Tamil Nadu</p>
+      <div class="edu-meta">
+        <span>2023 — Present</span>
+        <span>CGPA 8.21 (through 6th semester)</span>
+      </div>
+      <div class="edu-history">
+        <div><span>Class XII — Immaculate Heart of Mary Matriculation Higher Secondary School</span><span>2022–23 · 67.5%</span></div>
+        <div><span>Class X — Immaculate Heart of Mary Matriculation Higher Secondary School</span><span>2021–22</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills">
+    <div class="section-head"><span class="pin">03</span><h2>skills</h2></div>
+    <div class="skill-grid">
+      <div class="skill-block">
+        <span class="label">PROGRAMMING LANGUAGES</span>
+        <div class="chip-row">
+          <span class="chip">Java</span><span class="chip">Python</span><span class="chip">HTML</span><span class="chip">SQL</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <span class="label">TOOLS &amp; PLATFORMS</span>
+        <div class="chip-row">
+          <span class="chip">VS Code</span><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Eclipse</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <span class="label">WORKING STYLE</span>
+        <div class="chip-row">
+          <span class="chip">Time Management</span><span class="chip">Adaptability</span><span class="chip">Team Collaboration</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience">
+    <div class="section-head"><span class="pin">04</span><h2>experience</h2></div>
+    <div class="trace-wrap">
+      <svg class="trace-svg" viewBox="0 0 2 500" preserveAspectRatio="none">
+        <path class="trace-line" d="M1,0 L1,500"/>
+      </svg>
+
+      <div class="node">
+        <span class="node-dot"></span>
+        <span class="node-id">U1</span>
+        <p class="node-role">Embedded Systems Intern</p>
+        <p class="node-org">Emglitz Technologies</p>
+        <ul>
+          <li>Completed an internship in embedded systems, gaining hands-on exposure to embedded programming and hardware–software integration.</li>
+          <li>Built exposure to IoT applications and system integration, sharpening technical proficiency and analytical problem-solving.</li>
+        </ul>
+      </div>
+
+      <div class="node">
+        <span class="node-dot"></span>
+        <span class="node-id">U2</span>
+        <p class="node-role">PCB Design Intern</p>
+        <p class="node-org">Sunshiv Electronics</p>
+        <ul>
+          <li>Designed and developed printed circuit boards for electronic applications, applying schematic design and layout principles.</li>
+          <li>Gained hands-on experience in PCB design tools, component placement, and routing for functional circuit prototypes.</li>
+          <li>Assisted in testing and troubleshooting PCB layouts to ensure design accuracy and electrical reliability.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="project">
+    <div class="section-head"><span class="pin">05</span><h2>project</h2></div>
+    <div class="spec-sheet">
+      <div class="spec-header">
+        <h3>Grid-Synchronized Solar Inverter with Protection</h3>
+        <span class="pin">DC → AC</span>
+      </div>
+      <div class="spec-body">
+        <ul>
+          <li>Designed and implemented a grid-connected solar inverter using H-Bridge topology and SPWM control.</li>
+          <li>Developed voltage and current monitoring with relay-based protection for safe grid synchronization.</li>
+          <li>Integrated microcontroller-based control with an IR2110 gate driver for efficient DC-to-AC power conversion.</li>
+          <li>Focused on harmonic reduction, system safety, and renewable energy applications.</li>
+        </ul>
+      </div>
+      <div class="spec-tags">
+        <span class="chip">H-Bridge</span><span class="chip">SPWM</span><span class="chip">IR2110</span><span class="chip">Relay Protection</span><span class="chip">Renewable Energy</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-line">// end of file — thanks for reading</p>
+    <div class="footer-links">
+      <a href="mailto:malikasivaraj8@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/malika-sivaraj-4a278a3a3" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/malikasivaraj" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
