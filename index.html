@@ -3,42 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malika S D | Portfolio</title>
+    <title>Malika S D | Software & Hardware Portfolio</title>
     <style>
         :root {
-            --primary: #1e293b;
-            --accent: #2563eb;
-            --text-dark: #0f172a;
-            --text-muted: #475569;
-            --bg-light: #f8fafc;
-            --card-bg: #ffffff;
-            --border: #e2e8f0;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --card-border: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-cyan: #38bdf8;
+            --accent-purple: #c084fc;
+            --accent-green: #4ade80;
+            --badge-bg: rgba(56, 189, 248, 0.1);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             line-height: 1.6;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1050px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Header / Hero Section */
+        /* Hero / Header Section */
         header {
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border);
-            padding: 40px 0;
+            padding: 60px 0 40px;
+            border-bottom: 1px solid var(--card-border);
         }
 
         .hero {
@@ -48,32 +49,39 @@
         }
 
         .profile-img {
-            width: 140px;
-            height: 140px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--accent);
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
         }
 
         .hero-text h1 {
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 5px;
+            font-size: 2.4rem;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
         }
 
         .hero-text h2 {
             font-size: 1.1rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 12px;
+            color: var(--accent-cyan);
+            font-weight: 500;
+            margin: 6px 0 16px;
         }
 
         .contact-info {
             display: flex;
-            gap: 15px;
+            gap: 18px;
             flex-wrap: wrap;
             font-size: 0.9rem;
             color: var(--text-muted);
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         /* Layout Grid */
@@ -84,28 +92,29 @@
             gap: 30px;
         }
 
-        /* Section Styling */
+        /* Cards & Sections */
         section {
             background: var(--card-bg);
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            margin-bottom: 25px;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            margin-bottom: 24px;
         }
 
         .section-title {
-            font-size: 1.25rem;
-            color: var(--primary);
-            border-bottom: 2px solid var(--bg-light);
-            padding-bottom: 8px;
-            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--accent-cyan);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Timeline / Cards */
         .item {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .item:last-child {
@@ -116,40 +125,41 @@
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 5px;
         }
 
         .item-title {
-            font-weight: 700;
-            color: var(--text-dark);
-            font-size: 1rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-main);
         }
 
         .item-sub {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 0.9rem;
+            color: var(--accent-purple);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 2px;
         }
 
         .item-desc {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: var(--text-muted);
-            margin-top: 5px;
+            margin-top: 8px;
         }
 
         .item-desc li {
             margin-left: 18px;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
-        /* Badges & Skills */
+        /* Tech Badges */
         .skill-group {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         .skill-group h4 {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
             color: var(--text-muted);
             margin-bottom: 8px;
         }
@@ -161,19 +171,25 @@
         }
 
         .badge {
-            background-color: var(--bg-light);
-            color: var(--primary);
-            border: 1px solid var(--border);
+            background-color: var(--badge-bg);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(56, 189, 248, 0.2);
             padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.85rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
             font-weight: 500;
         }
 
-        .badge-accent {
-            background-color: #eff6ff;
-            color: var(--accent);
-            border-color: #bfdbfe;
+        .badge-purple {
+            background-color: rgba(192, 132, 252, 0.1);
+            color: var(--accent-purple);
+            border-color: rgba(192, 132, 252, 0.2);
+        }
+
+        .badge-green {
+            background-color: rgba(74, 222, 128, 0.1);
+            color: var(--accent-green);
+            border-color: rgba(74, 222, 128, 0.2);
         }
 
         /* Responsive */
@@ -201,11 +217,11 @@
                 <img src="your-image-url.jpg" alt="Malika S D" class="profile-img">
                 <div class="hero-text">
                     <h1>Malika S D</h1>
-                    <h2>Electronics & Communication Engineer | Hardware & Embedded Systems</h2>
+                    <h2>Electronics & Communication Engineer | Software & Embedded Systems</h2>
                     <div class="contact-info">
                         <span>📍 Coimbatore, Tamil Nadu, India</span>
                         <span>✉️ email@example.com</span>
-                        <span>🔗 linkedin.com/in/malikasd</span>
+                        <span>🔗 github.com/malika-sd</span>
                     </div>
                 </div>
             </div>
@@ -215,39 +231,42 @@
     <div class="container">
         <div class="main-content">
             
-            <!-- Left Column: Primary Details -->
+            <!-- Main Content Area -->
             <div class="left-col">
                 
                 <section>
-                    <h3 class="section-title">About Me</h3>
+                    <h3 class="section-title">Profile Overview</h3>
                     <p class="item-desc">
-                        Electronics and Communication Engineering graduate with a strong focus on embedded systems, hardware integration, and IoT edge computing[cite: 1]. Experienced in designing adaptive visibility enhancement algorithms and autonomous monitoring systems, supported by practical industry exposure in firmware logic design[cite: 1].
+                        Electronics and Communication Engineering graduate specializing in software architecture, embedded systems, and IoT edge analytics[cite: 1]. Experienced in building full-stack AI-integrated tools with FastAPI and React, alongside hardware control systems and visibility algorithms[cite: 1].
                     </p>
                 </section>
 
                 <section>
-                    <h3 class="section-title">Patents & Innovation</h3>
+                    <h3 class="section-title">Projects & Innovation</h3>
+                    
                     <div class="item">
-                        <div class="item-header">
-                            <span class="item-title">Adaptive Multi-Stage Visibility Enhancement & Anomaly Detection System</span>
-                        </div>
+                        <div class="item-title">Adaptive Multi-Stage Visibility Enhancement & Anomaly Detection System</div>
                         <div class="item-sub">Patent Application</div>
                         <ul class="item-desc">
-                            <li>Developed a system designed to restore traffic surveillance footage taken in poor environmental conditions like fog, rain, or low-light scenarios[cite: 1].</li>
-                            <li>Integrated anomaly detection algorithms to identify accidents and erratic vehicular behavior for real-time monitoring[cite: 1].</li>
+                            <li>Engineered an adaptive multi-stage algorithm restoring surveillance footage clarity under degraded weather conditions (fog, heavy rain, low light)[cite: 1].</li>
+                            <li>Integrated anomaly detection capability for identifying real-time vehicle behavior and accidents in autonomous systems[cite: 1].</li>
                         </ul>
                     </div>
-                </section>
 
-                <section>
-                    <h3 class="section-title">Projects</h3>
                     <div class="item">
-                        <div class="item-header">
-                            <span class="item-title">Grid-Synchronized Solar Inverter</span>
-                        </div>
+                        <div class="item-title">Nexus Log Anomaly Explainer</div>
+                        <div class="item-sub">Software Application</div>
                         <ul class="item-desc">
-                            <li>Designed grid-synchronized inverter architecture to ensure phase matching and efficient power delivery[cite: 1].</li>
-                            <li>Implemented control loops for monitoring grid parameters and hardware stability[cite: 1].</li>
+                            <li>Developed a log file analysis platform leveraging FastAPI and the Google Gemini API to parse system logs and generate automated bug reports[cite: 1].</li>
+                            <li>Built an intuitive frontend dashboard in React to highlight real-time anomalies and provide root-cause insights[cite: 1].</li>
+                        </ul>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">Grid-Synchronized Solar Inverter</div>
+                        <div class="item-sub">Hardware & Control Project</div>
+                        <ul class="item-desc">
+                            <li>Implemented phase-matching algorithms and hardware control logic to synchronize solar power delivery with the local utility grid[cite: 1].</li>
                         </ul>
                     </div>
                 </section>
@@ -255,50 +274,51 @@
                 <section>
                     <h3 class="section-title">Work Experience</h3>
                     <div class="item">
-                        <div class="item-header">
-                            <span class="item-title">Embedded Systems Intern</span>
-                        </div>
+                        <div class="item-title">Embedded Systems Intern</div>
+                        <div class="item-sub">Hardware & Firmware Team</div>
                         <ul class="item-desc">
-                            <li>Worked on hardware-software co-design principles to program microcontroller logic[cite: 1].</li>
-                            <li>Assisted in testing, debugging, and validating functional performance of embedded circuits[cite: 1].</li>
+                            <li>Programmed microcontroller operations and firmware logic using embedded development tools[cite: 1].</li>
+                            <li>Conducted functional testing, signal analysis, and bug remediation for hardware prototypes[cite: 1].</li>
                         </ul>
                     </div>
                 </section>
 
             </div>
 
-            <!-- Right Column: Skills, Education & Credentials -->
+            <!-- Sidebar Content -->
             <div class="right-col">
 
                 <section>
-                    <h3 class="section-title">Technical Skills</h3>
+                    <h3 class="section-title">Technical Stack</h3>
                     
                     <div class="skill-group">
-                        <h4>Hardware & Domain</h4>
-                        <div class="badges">
-                            <span class="badge">Embedded Systems</span>
-                            <span class="badge">IoT Edge Computing</span>
-                            <span class="badge">Solar Inverters</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-group">
-                        <h4>Software & Tools</h4>
+                        <h4>Languages</h4>
                         <div class="badges">
                             <span class="badge">Python</span>
                             <span class="badge">Java</span>
                             <span class="badge">SQL</span>
-                            <span class="badge">Git</span>
-                            <span class="badge">VS Code</span>
+                            <span class="badge">HTML</span>
                         </div>
                     </div>
 
                     <div class="skill-group">
-                        <h4>Specializations</h4>
+                        <h4>Frameworks & Tools</h4>
                         <div class="badges">
-                            <span class="badge">CDMA / MIMO / OFDM</span>
-                            <span class="badge">Cloud Computing</span>
-                            <span class="badge">Anomaly Detection</span>
+                            <span class="badge badge-purple">React</span>
+                            <span class="badge badge-purple">FastAPI</span>
+                            <span class="badge badge-purple">Git</span>
+                            <span class="badge badge-purple">VS Code</span>
+                            <span class="badge badge-purple">Gemini API</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h4>Domains & Hardware</h4>
+                        <div class="badges">
+                            <span class="badge badge-green">Embedded Systems</span>
+                            <span class="badge badge-green">IoT Edge Computing</span>
+                            <span class="badge badge-green">Cloud Computing</span>
+                            <span class="badge badge-green">CDMA / MIMO / OFDM</span>
                         </div>
                     </div>
                 </section>
@@ -317,15 +337,15 @@
                 <section>
                     <h3 class="section-title">Certifications</h3>
                     <ul class="item-desc" style="list-style-type: none; margin-left: 0;">
-                        <li style="margin-bottom: 10px;">
+                        <li style="margin-bottom: 12px;">
                             <strong>NPTEL (Elite)</strong><br>
                             Principles of Modern CDMA/MIMO/OFDM Wireless Communication[cite: 1]
                         </li>
-                        <li style="margin-bottom: 10px;">
+                        <li style="margin-bottom: 12px;">
                             <strong>NPTEL</strong><br>
                             Cloud Computing & Distributed Systems[cite: 1]
                         </li>
-                        <li style="margin-bottom: 10px;">
+                        <li style="margin-bottom: 12px;">
                             <strong>Infosys Springboard</strong><br>
                             IoT Edge Computing & Analytics[cite: 1]
                         </li>
